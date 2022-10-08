@@ -1,0 +1,222 @@
+:root{
+  --colorTim1: #8b4513;
+  --colorTim2: #191970;
+  --colorTim3: #808000;
+  --colorTim4: #008000;
+  --colorTim5: #008b8b;
+  --colorTim6: #9acd32;
+  --colorTim7: #8b008b;
+  --colorTim8: #ff4500;
+  --colorTim9: #ffa500;
+  --colorTim10: #ffff00;
+  --colorTim11: #7fff00;
+  --colorTim12: #00fa9a;
+  --colorTim13: #8a2be2;
+  --colorTim14: #4169e1;
+  --colorTim15: #dc143c;
+  --colorTim16: #00ffff;
+  --colorTim17: #00bfff;
+  --colorTim18: #0000ff;
+  --colorTim19: #d8bfd8;
+  --colorTim20: #ff00ff;
+  --colorTim21: #db7093;
+  --colorTim22: #f0e68c;
+  --colorTim23: #ff1493;
+  --colorTim24: #ffa07a;
+  --colorTim25: #ee82ee;
+}
+
+.App {
+  padding: 5px;
+  gap: 5px;
+}
+
+.testDrag{
+  background-color: silver;
+  width: 150px;
+  height: 50px;
+  margin: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tile{
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 2px;
+  background-color: white;
+  font-weight: bold;
+}
+
+.coor{
+  width: 65px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tileBoard{
+  display: inline-grid;
+  grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px;
+  row-gap: 5px;
+  column-gap: 10px;
+  border: solid 2px;
+  padding: 20px;
+  padding-right: 25px;
+  background-color: azure;
+}
+
+.desa{
+  border: solid 5px red;
+}
+
+.active{
+  background-color: blue;
+  color: white;
+}
+
+.tim1{
+  background-color: var(--colorTim1);
+  color: white;
+}
+
+.tim2{
+  background-color: var(--colorTim2);
+  color: white;
+}
+
+.tim3{
+  background-color: var(--colorTim3);
+  color: white;
+}
+
+.tim4{
+  background-color: var(--colorTim4);
+  color: white;
+}
+
+.tim5{
+  background-color: var(--colorTim5);
+  color: white;
+}
+
+.tim6{
+  background-color: var(--colorTim6);
+  color: white;
+}
+
+.tim7{
+  background-color: var(--colorTim7);
+  color: white;
+}
+
+
+.tim8{
+  background-color: var(--colorTim8);
+  color: white;
+}
+
+.tim9{
+  background-color: var(--colorTim9);
+  color: black;
+}
+
+.tim10{
+  background-color: var(--colorTim10);
+  color: black;
+}
+
+.tim11{
+  background-color: var(--colorTim11);
+  color: black;
+}
+
+.tim12{
+  background-color: var(--colorTim12);
+  color: black;
+}
+
+.tim13{
+  background-color: var(--colorTim13);
+  color: white;
+}
+
+.tim14{
+  background-color: var(--colorTim14);
+  color: white;
+}
+
+.tim15{
+  background-color: var(--colorTim15);
+  color: white;
+}
+
+.tim16{
+  background-color: var(--colorTim16);
+  color: black;
+}
+
+.tim17{
+  background-color: var(--colorTim17);
+  color: white;
+}
+
+.tim18{
+  background-color: var(--colorTim18);
+  color: white;
+}
+
+.tim19{
+  background-color: var(--colorTim19);
+  color: black;
+}
+
+.tim20{
+  background-color: var(--colorTim20);
+  color: black;
+}
+
+.tim21{
+  background-color: var(--colorTim21);
+  color: white;
+}
+
+.tim22{
+  background-color: var(--colorTim22);
+  color: black;
+}
+
+.tim23{
+  background-color: var(--colorTim23);
+  color: white;
+}
+
+.tim24{
+  background-color: var(--colorTim24);
+  color: black;
+}
+
+.tim25{
+  background-color: var(--colorTim25);
+  color: black;
+}
+
+.over{
+  background-color: silver;
+}
+
+#leaderboard{
+  border: solid 2px;
+  padding: 10px;
+  padding-right: 30px;
+  margin: 5px;
+}
+
+ul{
+  list-style-type: 1;
+}
