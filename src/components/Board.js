@@ -8,7 +8,7 @@ function BoardCoordinate({child}){
     )
 }
 
-function Board({onDrop, team, validArea}){
+function Board({onDrop, team, validArea, onDragStart}){
     let validTiles
     if(validArea){
         validTiles = validArea
@@ -26,13 +26,14 @@ function Board({onDrop, team, validArea}){
                 else tiles.push(<BoardCoordinate key={id}/>)
             }
             else{
-                if(validArea){
-                    if(validTiles.find((tile)=>tile==id))
-                        tiles.push(<Tile row={(row + 9).toString(36).toUpperCase()} column={column} id={id} onDrop={onDrop} team={team} isValid={true} key={id}/>) 
-                    else
-                        tiles.push(<Tile row={(row + 9).toString(36).toUpperCase()} column={column} id={id} onDrop={onDrop} team={team} isValid={false} key={id}/>)
-                }
-                else tiles.push(<Tile row={(row + 9).toString(36).toUpperCase()} column={column} id={id} onDrop={onDrop} team={team} isValid={true} key={id}/>)
+                // if(validArea){
+                //     if(validTiles.find((tile)=>tile==id))
+                //         tiles.push(<Tile row={(row + 9).toString(36).toUpperCase()} column={column} id={id} onDrop={onDrop} team={team} isValid={true} key={id}/>) 
+                //     else
+                //         tiles.push(<Tile row={(row + 9).toString(36).toUpperCase()} column={column} id={id} onDrop={onDrop} team={team} isValid={false} key={id}/>)
+                // }
+                // else tiles.push(<Tile row={(row + 9).toString(36).toUpperCase()} column={column} id={id} onDrop={onDrop} team={team} isValid={true} key={id}/>)
+                tiles.push(<Tile row={(row + 9).toString(36).toUpperCase()} column={column} id={id} onDrop={onDrop} team={team} isValid={true} onDragStart={onDragStart} key={id}/>) 
             }
             id++            
         }

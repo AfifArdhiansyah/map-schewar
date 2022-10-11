@@ -1,5 +1,5 @@
 
-function Tile({row, column, id, onDrop, team, isValid}){
+function Tile({row, column, id, onDrop, team, isValid, onDragStart}){
     const dragTile = (e)=>{
         const teamChoose = 'tim'+team
         document.getElementById(id).innerHTML = ''
@@ -33,6 +33,7 @@ function Tile({row, column, id, onDrop, team, isValid}){
             id={id}
             className="tile" 
             onDrag={(e)=>dragTile(e)}
+            onDragStart={(e)=>onDragStart(e)}
             onDrop={()=>onDrop(row, column, id, team)}  
             onDragOver={(e)=> over(e, id)}
             // onDragLeave={()=>leave(id)}

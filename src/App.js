@@ -23,6 +23,7 @@ class App extends React.Component {
     this.onChooseTeamHandler = this.onChooseTeamHandler.bind(this)
     this.onDragHandler = this.onDragHandler.bind(this)
     this.onDragLeaveHandler = this.onDragLeaveHandler.bind(this)
+    this.onDragStartTileHandler = this.onDragStartTileHandler.bind(this)
     this.lookValid = this.lookValid.bind(this)
     this.drawTile = this.drawTile.bind(this)
     this.loadDataFromStorage = this.loadDataFromStorage.bind(this)
@@ -81,17 +82,57 @@ class App extends React.Component {
 
   generateTile(id, team, type) {
     return {
-      id,
-      team,
-      type,
+      id : id,
+      team : team,
+      type : type,
     }
   }
 
   onDragStartHandler(e){
     const element = e.target.id
+    // console.log(element)
     this.setState(()=>{
       return{
         put: element
+      }
+    })
+  }
+
+  onDragStartTileHandler(e){
+    const element = e.target
+    const getAtr = element.classList[1]
+    const content = element.innerHTML
+    const id = element.id
+    const team = element.classList[2]
+    console.log(id, this.state.tilePosition[0].id)
+    element.classList.remove(getAtr)
+    let put = ''
+    const filterPos = this.state.tilePosition.filter((tile)=>{
+      return tile.id != id
+    })
+    // const filterValid = this.state.validArea['desa'+team[3]].filter((valid)=>{
+    //   return (valid === id || valid === id-1 || valid === id+1 || valid === id-16 || valid === id+16)
+    // })
+    // console.log(this.state.tilePosition)
+    // console.log(filterPos)
+    switch(content){
+      case 'P1':
+        put = 'pasukan1'
+        break
+      case 'P2':
+        put = 'pasukan2'
+        break
+      case 'P3':
+        put = 'pasukan3'
+        break
+      default:
+        put = 'desa'
+    }
+    this.setState(()=>{
+      return{
+        put: put,
+        tilePosition : filterPos,
+        // validArea : filterValid
       }
     })
   }
@@ -100,7 +141,7 @@ class App extends React.Component {
     const validTile = this.state.validArea['desa'+this.state.team]
     if(validTile){
       validTile.forEach(valid => {
-        document.getElementById(valid).classList.add('over')
+        // document.getElementById(valid).classList.add('over')
       });
     }
   }
@@ -117,6 +158,11 @@ class App extends React.Component {
     // console.log('id :', id)
 
     const element = document.getElementById(id)
+    if(element.classList[2]){
+      // console.log(element.classList[2])
+      element.classList.remove(element.classList[2])
+    }
+
     let dropElement
 
     if(this.state.put==='desa'){
@@ -238,6 +284,10 @@ class App extends React.Component {
       let value = ''
       const element = document.getElementById(tile.id)
       if(tile.type == 'desa'){
+        if(element.classList.contains('desa')){
+          const teamBefore = element.classList[2]
+          element.classList.remove(teamBefore,'desa')
+        }
           element.classList.add('desa')
           element.classList.add('tim'+tile.team)
           value = 'D'+tile.team
@@ -245,16 +295,31 @@ class App extends React.Component {
       }
       else{
           if(tile.type == 'pasukan1'){
+            if(element.classList.contains('pasukan')){
+              const teamBefore = element.classList[2]
+              element.classList.remove(teamBefore, 'pasukan')
+            }
+              element.classList.add('pasukan')
               element.classList.add('tim'+tile.team)
               value = 'P1'
               element.innerHTML = value
           }
           else if(tile.type == 'pasukan2'){
+            if(element.classList.contains('pasukan')){
+              const teamBefore = element.classList[2]
+              element.classList.remove(teamBefore, 'pasukan')
+            }
+              element.classList.add('pasukan')
               element.classList.add('tim'+tile.team)
               value = 'P2'
               element.innerHTML = value
           }
           else if(tile.type == 'pasukan3'){
+            if(element.classList.contains('pasukan')){
+              const teamBefore = element.classList[2]
+              element.classList.remove(teamBefore, 'pasukan')
+            }
+              element.classList.add('pasukan')
               element.classList.add('tim'+tile.team)
               value = 'P3'
               element.innerHTML = value
@@ -275,15 +340,15 @@ class App extends React.Component {
   render(){
     return (
       <div className="App d-flex">
-        <Board onDrop={this.onDropHandler} team={this.state.team} validArea={this.state.validArea['desa'+this.state.team]} tilePosition={this.state.tilePosition}/>
+        <Board onDrop={this.onDropHandler} onDragStart={this.onDragStartTileHandler} team={this.state.team} validArea={this.state.validArea['desa'+this.state.team]} tilePosition={this.state.tilePosition}/>
         <div className='d-flex flex-column'>
           <div className='testDrag' id='desa' onDragStart={this.onDragStartHandler} onDrag={this.onDragHandler} onDragLeave={this.onDragLeaveHandler} draggable>Desa</div>
           <div className='testDrag' id='pasukan1' onDragStart={this.onDragStartHandler} onDrag={this.onDragHandler} onDragLeave={this.onDragLeaveHandler} draggable>Pasukan LV.1</div>
           <div className='testDrag' id='pasukan2' onDragStart={this.onDragStartHandler} onDrag={this.onDragHandler} onDragLeave={this.onDragLeaveHandler} draggable>Pasukan LV.2</div>
           <div className='testDrag' id='pasukan3' onDragStart={this.onDragStartHandler} onDrag={this.onDragHandler} onDragLeave={this.onDragLeaveHandler} draggable>Pasukan LV.3</div>
           <DropdownTeam onChooseTeam={this.onChooseTeamHandler}/>
-          <button onClick={this.lookValid}>Lookkk</button>
-          <Leaderboard/>
+          {/* <button onClick={this.lookValid}>Lookkk</button>
+          <Leaderboard/> */}
         </div>        
       </div>
     );
