@@ -158,10 +158,23 @@ class App extends React.Component {
     // console.log('id :', id)
 
     const element = document.getElementById(id)
-    if(element.classList[2]){
-      // console.log(element.classList[2])
-      element.classList.remove(element.classList[2])
+
+    //delete attribute before
+    if(element.classList.contains('desa') || element.classList.contains('pasukan')){
+      element.classList.remove('desa')
+      element.classList.remove('pasukan')
+      if(element.classList[1]){
+        // console.log(element.classList[2])
+        element.classList.remove(element.classList[1])
+      }
     }
+    else{
+      if(element.classList[2]){
+        // console.log(element.classList[2])
+        element.classList.remove(element.classList[2])
+      }
+    }
+    
 
     let dropElement
 
@@ -283,6 +296,22 @@ class App extends React.Component {
       const teamChoose = 'tim'+tile.team
       let value = ''
       const element = document.getElementById(tile.id)
+      //delete attribute before
+      if(element.classList.contains('desa') || element.classList.contains('pasukan')){
+        element.classList.remove('desa')
+        element.classList.remove('pasukan')
+        if(element.classList[1]){
+          // console.log(element.classList[2])
+          element.classList.remove(element.classList[1])
+        }
+      }
+      else{
+        if(element.classList[2]){
+          // console.log(element.classList[2])
+          element.classList.remove(element.classList[2])
+        }
+      }
+      //add atribut
       if(tile.type == 'desa'){
         if(element.classList.contains('desa')){
           const teamBefore = element.classList[2]
