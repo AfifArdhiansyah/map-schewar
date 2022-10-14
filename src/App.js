@@ -2,7 +2,10 @@ import './App.css';
 import { Board } from './components/Board';
 import { DropdownTeam } from './components/DropdownTeam';
 import { Leaderboard } from './components/Leaderboard';
+import { TitleGroup } from './components/TitleGroup';
 import React from 'react';
+
+const Group = 3;
 
 class App extends React.Component {
   constructor(props){
@@ -369,13 +372,14 @@ class App extends React.Component {
   render(){
     return (
       <div className="App d-flex">
+        <TitleGroup group={Group} />
         <Board onDrop={this.onDropHandler} onDragStart={this.onDragStartTileHandler} team={this.state.team} validArea={this.state.validArea['desa'+this.state.team]} tilePosition={this.state.tilePosition}/>
         <div className='d-flex flex-column'>
           <div className='testDrag' id='desa' onDragStart={this.onDragStartHandler} onDrag={this.onDragHandler} onDragLeave={this.onDragLeaveHandler} draggable>Desa</div>
           <div className='testDrag' id='pasukan1' onDragStart={this.onDragStartHandler} onDrag={this.onDragHandler} onDragLeave={this.onDragLeaveHandler} draggable>Pasukan LV.1</div>
           <div className='testDrag' id='pasukan2' onDragStart={this.onDragStartHandler} onDrag={this.onDragHandler} onDragLeave={this.onDragLeaveHandler} draggable>Pasukan LV.2</div>
           <div className='testDrag' id='pasukan3' onDragStart={this.onDragStartHandler} onDrag={this.onDragHandler} onDragLeave={this.onDragLeaveHandler} draggable>Pasukan LV.3</div>
-          <DropdownTeam onChooseTeam={this.onChooseTeamHandler}/>
+          <DropdownTeam onChooseTeam={this.onChooseTeamHandler} group={Group}/>
           {/* <button onClick={this.lookValid}>Lookkk</button>
           <Leaderboard/> */}
         </div>        

@@ -29,6 +29,7 @@
 .App {
   padding: 5px;
   gap: 5px;
+  justify-content: center;
 }
 
 .testDrag{
@@ -53,21 +54,22 @@
 }
 
 .coor{
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: bold;
 }
 
 .tileBoard{
   display: inline-grid;
-  grid-template-columns: 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px 65px;
+  grid-template-columns: 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px 60px;
   row-gap: 5px;
   column-gap: 10px;
   border: solid 2px;
-  padding: 20px;
-  padding-right: 25px;
+  padding: 10px;
+  padding-right: 15px;
   background-color: azure;
 }
 
@@ -80,128 +82,128 @@
   color: white;
 }
 
-.tim1{
+.tim1, .tim26, .tim51{
   background-color: var(--colorTim1);
   color: white;
 }
 
-.tim2{
+.tim2, .tim27, .tim52{
   background-color: var(--colorTim2);
   color: white;
 }
 
-.tim3{
+.tim3, .tim28, .tim53{
   background-color: var(--colorTim3);
   color: white;
 }
 
-.tim4{
+.tim4, .tim29, .tim54{
   background-color: var(--colorTim4);
   color: white;
 }
 
-.tim5{
+.tim5, .tim30, .tim55{
   background-color: var(--colorTim5);
   color: white;
 }
 
-.tim6{
+.tim6, .tim31, .tim56{
   background-color: var(--colorTim6);
   color: white;
 }
 
-.tim7{
+.tim7, .tim32, .tim57{
   background-color: var(--colorTim7);
   color: white;
 }
 
 
-.tim8{
+.tim8, .tim33, .tim58{
   background-color: var(--colorTim8);
   color: white;
 }
 
-.tim9{
+.tim9, .tim34, .tim59{
   background-color: var(--colorTim9);
   color: black;
 }
 
-.tim10{
+.tim10, .tim35, .tim60{
   background-color: var(--colorTim10);
   color: black;
 }
 
-.tim11{
+.tim11, .tim36, .tim61{
   background-color: var(--colorTim11);
   color: black;
 }
 
-.tim12{
+.tim12, .tim37, .tim62{
   background-color: var(--colorTim12);
   color: black;
 }
 
-.tim13{
+.tim13, .tim38, .tim63{
   background-color: var(--colorTim13);
   color: white;
 }
 
-.tim14{
+.tim14, .tim39, .tim64{
   background-color: var(--colorTim14);
   color: white;
 }
 
-.tim15{
+.tim15, .tim40, .tim65{
   background-color: var(--colorTim15);
   color: white;
 }
 
-.tim16{
+.tim16, .tim41, .tim66{
   background-color: var(--colorTim16);
   color: black;
 }
 
-.tim17{
+.tim17, .tim42, .tim67{
   background-color: var(--colorTim17);
   color: white;
 }
 
-.tim18{
+.tim18, .tim43, .tim68{
   background-color: var(--colorTim18);
   color: white;
 }
 
-.tim19{
+.tim19, .tim44, .tim69{
   background-color: var(--colorTim19);
   color: black;
 }
 
-.tim20{
+.tim20, .tim45, .tim70{
   background-color: var(--colorTim20);
   color: black;
 }
 
-.tim21{
+.tim21, .tim46, .tim71{
   background-color: var(--colorTim21);
   color: white;
 }
 
-.tim22{
+.tim22, .tim47, .tim72{
   background-color: var(--colorTim22);
   color: black;
 }
 
-.tim23{
+.tim23, .tim48, .tim73{
   background-color: var(--colorTim23);
   color: white;
 }
 
-.tim24{
+.tim24, .tim49, .tim74{
   background-color: var(--colorTim24);
   color: black;
 }
 
-.tim25{
+.tim25, .tim50, .tim75{
   background-color: var(--colorTim25);
   color: black;
 }
@@ -219,4 +221,8 @@
 
 ul{
   list-style-type: 1;
+}
+
+.btn{
+  width: 100%;
 }
